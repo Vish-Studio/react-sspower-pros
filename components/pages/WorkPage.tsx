@@ -1,6 +1,5 @@
 import React from 'react';
-import { SectionId } from '../types';
-import Contact from './Contact';
+import Contact from '../Contact';
 
 const WorkPage: React.FC = () => {
   const projects = [
@@ -47,8 +46,8 @@ const WorkPage: React.FC = () => {
       {/* Page Hero */}
       <section className="relative py-24 bg-slate-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900"></div>
-           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900/0 to-slate-900/0"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 to-slate-900"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900/0 to-slate-900/0"></div>
         </div>
         <div className="relative z-10 text-center max-w-4xl px-6 pt-10">
           <span className="text-blue-400 font-bold tracking-wider text-sm uppercase mb-4 block">Our Portfolio</span>
@@ -66,9 +65,9 @@ const WorkPage: React.FC = () => {
             {projects.map((project, idx) => (
               <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
@@ -77,7 +76,7 @@ const WorkPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{project.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-4">

@@ -6,9 +6,9 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ServicesPage from './components/ServicesPage';
-import WorkPage from './components/WorkPage';
 import { Page } from './types';
+import ServicesPage from './components/pages/ServicesPage';
+import WorkPage from './components/pages/WorkPage';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 overflow-x-hidden">
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
-      
+
       <main>
         {currentPage === 'home' && (
           <>
@@ -32,11 +32,11 @@ const App: React.FC = () => {
             <Contact />
           </>
         )}
-        
+
         {currentPage === 'services' && (
           <ServicesPage />
         )}
-        
+
         {currentPage === 'work' && (
           <WorkPage />
         )}

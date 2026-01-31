@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export type Page = 'home' | 'services' | 'work';
+export type Page = "home" | "about" | "services" | "work";
 
 export interface ServiceItem {
   id: string;
@@ -18,10 +18,10 @@ export interface AIQuoteEstimation {
 }
 
 export enum SectionId {
-  HOME = 'home',
-  SERVICES = 'services',
-  WORK = 'work', // Added for Portfolio
-  QUOTE = 'quote',
-  ABOUT = 'about',
-  CONTACT = 'contact'
+  HOME = "home",
+  SERVICES = "services",
+  WORK = "work", // Added for Portfolio
+  QUOTE = "quote",
+  ABOUT = "about",
+  CONTACT = "contact",
 }
