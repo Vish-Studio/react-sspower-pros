@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4">
         <p className="mb-2">© {new Date().getFullYear()} SS Power Pros. All rights reserved.</p>
         <p className="text-slate-700">
-          Designed by <a href="https://www.vish.studio" target="_blank" rel="noopener noreferrer" className="text-slate-500 font-bold hover:text-white transition-colors cursor-pointer">VISH Studio</a>
+          Designed by <a href="https://www.vish.studio" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:text-white transition-colors cursor-pointer">VISH Studio</a>
         </p>
       </div>
     </footer>
