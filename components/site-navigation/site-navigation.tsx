@@ -1,34 +1,76 @@
-import { Bolt, PhoneCall } from 'lucide-react';
-import { CustomButton } from '@/components/custom-button/custom-button';
+'use client';
+
+import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 const navItems = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'Book', href: '#contact' },
+  { label: 'Work', href: '/work' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Book', href: '/#contact' },
+];
+
+const serviceItems = [
+  { label: 'Electrical', href: '/services/electrical' },
+  { label: 'AC', href: '/services/ac' },
+  { label: 'Plumbing', href: '/services/plumbing' },
+  { label: 'Maintenance', href: '/services/maintenance' },
 ];
 
 export function SiteNavigation() {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!menuRef.current?.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, []);
+
   return (
     <header className="site-nav">
       <div className="site-nav__inner">
-        <a href="#home" className="brand-mark" aria-label="SS Power Pros home">
-          <span className="brand-mark__bolt">
-            <Bolt size={19} fill="currentColor" aria-hidden="true" />
-          </span>
+        <Link href="/#home" className="brand-mark" aria-label="SS Power Pros home">
           <span>SS Power Pros</span>
-        </a>
+        </Link>
         <nav className="site-nav__links" aria-label="Primary navigation">
+          <div className="site-nav__menu" ref={menuRef}>
+            <button
+              type="button"
+              className="site-nav__menu-trigger"
+              aria-expanded={isServicesOpen}
+              aria-controls="services-submenu"
+              onClick={() => setIsServicesOpen((current) => !current)}
+            >
+              <span>Services</span>
+              <ChevronDown size={15} aria-hidden="true" />
+            </button>
+            <div
+              id="services-submenu"
+              className={`site-nav__submenu${isServicesOpen ? ' site-nav__submenu--open' : ''}`}
+              aria-label="Service pages"
+            >
+              {serviceItems.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setIsServicesOpen(false)}>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} href={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="site-nav__actions">
-          <CustomButton href="tel:+1234567890" variant="primary" icon={PhoneCall}>
-            Call now
-          </CustomButton>
+          <WhatsappCta className="site-nav__whatsapp">WhatsApp</WhatsappCta>
         </div>
       </div>
     </header>

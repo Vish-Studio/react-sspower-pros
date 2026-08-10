@@ -1,6 +1,7 @@
 import { Droplets, Home, PhoneCall, PlugZap, Snowflake } from 'lucide-react';
 import { CustomButton } from '@/components/custom-button/custom-button';
 import { Reveal } from '@/components/reveal/reveal';
+import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 const issues = [
   {
@@ -33,9 +34,12 @@ export function IssueSection() {
           <div className="eyebrow">Start here</div>
           <h2 id="issue-heading">What needs fixing?</h2>
           <p>Choose the closest issue. The call routes faster when the job starts clear.</p>
-          <CustomButton href="tel:+1234567890" icon={PhoneCall}>
-            Speak to a technician
-          </CustomButton>
+          <div className="hero__actions">
+            <WhatsappCta message="Hi SS Power Pros, I would like help with a home repair issue." />
+            <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
+              Speak to a technician
+            </CustomButton>
+          </div>
         </Reveal>
 
         <div className="issue-card-grid">

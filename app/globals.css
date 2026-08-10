@@ -116,18 +116,10 @@ section {
 
 .brand-mark {
   gap: 0.5rem;
-  font-weight: 800;
+  color: var(--color-ink);
+  font-size: 1.08rem;
+  font-weight: 900;
   letter-spacing: 0;
-}
-
-.brand-mark__bolt {
-  display: grid;
-  place-items: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: var(--radius-small);
-  background: var(--color-night);
-  color: var(--color-safety);
 }
 
 .site-nav__links {
@@ -136,8 +128,65 @@ section {
   font-size: 0.92rem;
 }
 
+.site-nav__menu {
+  position: relative;
+}
+
+.site-nav__menu-trigger {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.site-nav__submenu {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  left: 50%;
+  display: grid;
+  min-width: 190px;
+  padding: 0.45rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-small);
+  background: rgba(253, 253, 253, 0.96);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -6px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.site-nav__submenu a {
+  padding: 0.72rem 0.8rem;
+  border-radius: var(--radius-small);
+  color: var(--color-ink-soft);
+  font-weight: 700;
+}
+
+.site-nav__submenu a:hover,
+.site-nav__submenu a:focus-visible {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+.site-nav__submenu--open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
 .site-nav__actions {
   gap: 0.7rem;
+}
+
+.site-nav__whatsapp {
+  min-height: 2.9rem;
 }
 
 .button {
@@ -201,6 +250,37 @@ section {
 
 .button--has-up-arrow:hover .button__icon {
   transform: translate(3px, -3px);
+}
+
+.whatsapp-cta {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  align-items: center;
+  width: fit-content;
+  min-height: 2.9rem;
+  padding: 0.78rem 1rem;
+  border: 1px solid var(--color-rust);
+  border-radius: var(--radius-small);
+  background: var(--color-rust);
+  color: var(--color-panel);
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 10px 30px rgba(47, 95, 83, 0.22);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.whatsapp-cta:hover {
+  background: var(--color-rust-dark);
+  border-color: var(--color-rust-dark);
+  box-shadow: 0 12px 34px rgba(31, 64, 56, 0.24);
+}
+
+.whatsapp-cta__icon {
+  flex: 0 0 auto;
 }
 
 .hero {
@@ -316,7 +396,12 @@ section {
   background: rgba(253, 253, 253, 0.92);
 }
 
-.hero__booking-bar span {
+.hero__booking-bar .whatsapp-cta,
+.hero__booking-bar .button {
+  flex: 0 0 auto;
+}
+
+.hero__booking-bar > div > span {
   color: var(--color-ink-soft);
   font-size: 0.92rem;
 }
@@ -580,6 +665,199 @@ section {
   margin: 0;
   color: var(--color-ink-soft);
   line-height: 1.45;
+}
+
+.social-proof-strip {
+  padding-top: 0;
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.social-proof-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.social-proof-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-medium);
+  background: rgba(253, 253, 253, 0.78);
+}
+
+.social-proof-card svg {
+  flex: 0 0 auto;
+  color: var(--color-blue);
+}
+
+.social-proof-card h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.social-proof-card p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  line-height: 1.45;
+}
+
+.lp-hero .hero__title {
+  max-width: 780px;
+}
+
+.lp-hero__intro {
+  min-height: clamp(360px, calc(100vh - 4.7rem - 330px), 560px);
+}
+
+.lp-hero__badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.62rem 0.75rem;
+  border: 1px solid rgba(253, 253, 253, 0.32);
+  border-radius: var(--radius-small);
+  background: rgba(34, 26, 26, 0.34);
+  color: var(--color-panel);
+  font-weight: 800;
+  backdrop-filter: blur(12px);
+}
+
+.lp-booking-card {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  border: 1px solid rgba(253, 253, 253, 0.5);
+  border-radius: var(--radius-small);
+  background: rgba(253, 253, 253, 0.94);
+}
+
+.lp-booking-card > div > span {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
+
+.lp-booking-card h2 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.45rem, 2.15vw, 2.1rem);
+  line-height: 1;
+}
+
+.lp-booking-card__fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.65rem;
+}
+
+.lp-booking-card .button {
+  width: fit-content;
+}
+
+.lp-booking-card .whatsapp-cta {
+  width: fit-content;
+}
+
+.work-page-hero {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.reviews-page-hero {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.work-page-hero__copy {
+  max-width: 860px;
+}
+
+.reviews-page-hero__copy {
+  max-width: 900px;
+}
+
+.work-page-hero .hero__title {
+  max-width: 760px;
+  font-size: clamp(3.2rem, 5.8vw, 5.8rem);
+}
+
+.reviews-page-hero .hero__title {
+  max-width: 920px;
+  font-size: clamp(3.2rem, 5.8vw, 5.8rem);
+}
+
+.work-gallery-section {
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+
+.reviews-page-section {
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+
+.work-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.work-gallery-card__category {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.lp-value-section {
+  padding-top: clamp(2rem, 5vw, 4rem);
+}
+
+.lp-value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.lp-value-card {
+  min-height: 270px;
+  padding: 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-small);
+  background: rgba(253, 253, 253, 0.78);
+}
+
+.lp-value-card svg {
+  color: var(--color-rust);
+}
+
+.lp-value-card span {
+  display: block;
+  margin-top: 2.4rem;
+  color: var(--color-blue);
+  font-weight: 800;
+}
+
+.lp-value-card h3 {
+  margin: 0.5rem 0 0.65rem;
+  font-size: clamp(1.3rem, 1.9vw, 1.65rem);
+  line-height: 1.05;
+}
+
+.lp-value-card p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  line-height: 1.55;
 }
 
 .booking-panel__form {
@@ -1060,6 +1338,15 @@ section {
   margin-top: 1.4rem;
 }
 
+.review-card__service {
+  width: fit-content;
+  margin-top: 0.6rem;
+  color: var(--color-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .proof {
   background: var(--color-night);
   color: var(--color-panel);
@@ -1263,6 +1550,38 @@ section {
   line-height: 1.6;
 }
 
+.footer__proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 620px;
+  margin-top: 1.25rem;
+}
+
+.footer__proof div {
+  padding: 0.8rem;
+  border: 1px solid rgba(253, 253, 253, 0.14);
+  border-radius: var(--radius-small);
+  background: rgba(253, 253, 253, 0.06);
+}
+
+.footer__proof strong,
+.footer__proof span {
+  display: block;
+}
+
+.footer__proof strong {
+  color: var(--color-panel);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.footer__proof span {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.3;
+}
+
 .footer__logo {
   color: var(--color-panel);
   font-size: clamp(2rem, 4vw, 4.4rem);
@@ -1281,6 +1600,21 @@ section {
 .footer__contact {
   display: grid;
   gap: 0.55rem;
+}
+
+.footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.footer__socials a {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(253, 253, 253, 0.14);
+  border-radius: var(--radius-small);
+  background: rgba(253, 253, 253, 0.06);
+  font-weight: 800;
 }
 
 .footer ul {
@@ -1352,6 +1686,8 @@ section {
   }
 
   .services-grid,
+  .lp-value-grid,
+  .work-gallery-grid,
   .before-after-grid,
   .recent-work-grid,
   .review-grid,
@@ -1383,13 +1719,8 @@ section {
     font-size: 1rem;
   }
 
-  .brand-mark__bolt {
-    width: 2rem;
-    height: 2rem;
-  }
-
   .brand-mark span:last-child {
-    max-width: 86px;
+    max-width: none;
     line-height: 1.05;
   }
 
@@ -1399,9 +1730,84 @@ section {
     white-space: nowrap;
   }
 
+  .site-nav__actions .button {
+    display: none;
+  }
+
+  .site-nav__actions .whatsapp-cta {
+    min-height: 2.7rem;
+    padding: 0.7rem 0.85rem;
+    white-space: nowrap;
+  }
+
   .hero {
     min-height: auto;
     padding-top: 1rem;
+  }
+
+  .lp-hero {
+    min-height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .lp-hero .hero__title {
+    font-size: clamp(2.55rem, 11vw, 3.25rem);
+    line-height: 0.95;
+  }
+
+  .lp-hero .hero__intro-copy .hero__actions {
+    display: flex;
+  }
+
+  .lp-hero__stage {
+    min-height: 430px;
+  }
+
+  .lp-hero__badge {
+    right: 0.85rem;
+    left: 0.85rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .lp-booking-card {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    left: 0.85rem;
+    gap: 0.65rem;
+  }
+
+  .lp-booking-card__fields {
+    display: none;
+  }
+
+  .lp-booking-card h2 {
+    font-size: 1.35rem;
+  }
+
+  .lp-booking-card .button,
+  .lp-booking-card .whatsapp-cta {
+    width: 100%;
+    min-height: 2.8rem;
+  }
+
+  .work-page-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .reviews-page-hero {
+    padding-top: 3.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .work-page-hero .hero__title {
+    font-size: clamp(2.75rem, 12vw, 3.5rem);
+  }
+
+  .reviews-page-hero .hero__title {
+    font-size: clamp(2.75rem, 12vw, 3.5rem);
   }
 
   .hero--editorial {
@@ -1435,11 +1841,19 @@ section {
     display: none;
   }
 
+  .lp-hero .hero__intro-copy .hero__actions {
+    display: flex;
+  }
+
   .hero__stage {
     min-height: 560px;
     aspect-ratio: auto;
     margin-top: 0;
     border-radius: var(--radius-small);
+  }
+
+  .lp-hero__stage {
+    min-height: 430px;
   }
 
   .hero__stage img {
@@ -1502,6 +1916,11 @@ section {
     min-height: 3rem;
   }
 
+  .hero__booking-bar .whatsapp-cta {
+    width: 100%;
+    min-height: 3rem;
+  }
+
   .hero__media,
   .proof-card {
     min-height: 420px;
@@ -1534,6 +1953,9 @@ section {
   }
 
   .services-grid,
+  .lp-value-grid,
+  .work-gallery-grid,
+  .social-proof-strip__grid,
   .recent-work-grid,
   .before-after-grid,
   .review-grid,
@@ -1565,6 +1987,10 @@ section {
   }
 
   .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__proof {
     grid-template-columns: 1fr;
   }
 

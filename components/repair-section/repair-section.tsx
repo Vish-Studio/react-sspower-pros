@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { ArrowRight, PhoneCall } from 'lucide-react';
 import { CustomButton } from '@/components/custom-button/custom-button';
 import { Reveal } from '@/components/reveal/reveal';
+import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 const repairSignals = [
   'Breaker trips or outlets stop working',
@@ -33,9 +34,12 @@ export function RepairSection() {
               </li>
             ))}
           </ul>
-          <CustomButton href="tel:+1234567890" icon={PhoneCall}>
-            Call for availability
-          </CustomButton>
+          <div className="hero__actions">
+            <WhatsappCta message="Hi SS Power Pros, I would like to check repair availability." />
+            <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
+              Call for availability
+            </CustomButton>
+          </div>
         </Reveal>
       </div>
     </section>

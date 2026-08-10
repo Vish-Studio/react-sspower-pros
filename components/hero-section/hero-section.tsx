@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, PhoneCall, ShieldCheck } from 'lucide-react';
+import { PhoneCall, ShieldCheck } from 'lucide-react';
 import { CustomButton } from '@/components/custom-button/custom-button';
+import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 const serviceChips = ['Electrical', 'AC', 'Plumbing', 'Maintenance'];
 
@@ -64,7 +65,8 @@ export function HeroSection() {
               repairs and maintenance work.
             </p>
             <div className="hero__actions">
-              <CustomButton href="tel:+1234567890" icon={PhoneCall}>
+              <WhatsappCta />
+              <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
                 Call now
               </CustomButton>
             </div>
@@ -119,8 +121,9 @@ export function HeroSection() {
               <span>Same-day call-backs for urgent issues</span>
               <h2>Tell us what needs fixing.</h2>
             </div>
-            <CustomButton href="#contact" icon={ArrowRight}>
-              Start booking
+            <WhatsappCta message="Hi SS Power Pros, I would like to start a booking." />
+            <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
+              Call now
             </CustomButton>
           </div>
         </motion.div>
