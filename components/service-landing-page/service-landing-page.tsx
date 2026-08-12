@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import {
-  ArrowRight,
   CalendarCheck,
   CheckCircle2,
   Clock3,
@@ -13,6 +12,7 @@ import {
 import { CustomButton } from '@/components/custom-button/custom-button';
 import { CustomInput } from '@/components/custom-input/custom-input';
 import { CustomSelect } from '@/components/custom-select/custom-select';
+import { CtaSection } from '@/components/cta-section/cta-section';
 import { FooterSection } from '@/components/footer-section/footer-section';
 import { Reveal } from '@/components/reveal/reveal';
 import { SectionHeading } from '@/components/section-heading/section-heading';
@@ -50,8 +50,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Electrical service',
     serviceOption: 'Electrical repair',
     image:
-      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Electrician inspecting a residential breaker panel',
+      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Electrician working on residential electrical equipment',
     proof: 'Repair intake before dispatch',
     overviewTitle: 'Safer electrical work, without vague handoffs.',
     overviewCopy:
@@ -84,8 +84,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'AC service',
     serviceOption: 'AC service',
     image:
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Technician servicing residential cooling equipment',
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Technician preparing equipment for residential AC service',
     proof: 'Cooling issue triage',
     overviewTitle: 'Cooling requests routed with the right details.',
     overviewCopy:
@@ -118,8 +118,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Plumbing service',
     serviceOption: 'Plumbing repair',
     image:
-      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Plumber repairing pipework in a home',
+      'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Clean residential plumbing fixtures after repair work',
     proof: 'Leak and fixture triage',
     overviewTitle: 'Plumbing problems need quick clarity.',
     overviewCopy:
@@ -152,8 +152,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Home maintenance',
     serviceOption: 'Home maintenance',
     image:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Home maintenance professional working inside a residential property',
+      'https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Contractor tools ready for home maintenance work',
     proof: 'Punch-list intake',
     overviewTitle: 'A cleaner path for everyday home repairs.',
     overviewCopy:
@@ -320,31 +320,12 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
           </div>
         </section>
 
-        <section id="contact" className="cta">
-          <div className="container">
-            <Reveal className="cta__panel">
-              <div>
-                <div className="eyebrow">Book {service.navLabel}</div>
-                <h2>Ready to talk through the repair?</h2>
-              </div>
-              <div>
-                <p>
-                  Call SS Power Pros or send the details so the right service path can be
-                  confirmed.
-                </p>
-                <div className="hero__actions">
-                  <WhatsappCta message={`Hi SS Power Pros, I would like to book ${service.serviceOption}.`} />
-                  <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
-                    Call now
-                  </CustomButton>
-                  <CustomButton href="mailto:hello@sspowerpros.com" variant="ghost" icon={ArrowRight}>
-                    Email details
-                  </CustomButton>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <CtaSection
+          eyebrow={`Book ${service.navLabel}`}
+          title="Ready to talk through the repair?"
+          copy="Send the repair details on WhatsApp or call directly so the right service path can be confirmed."
+          whatsappMessage={`Hi SS Power Pros, I would like to book ${service.serviceOption}.`}
+        />
       </main>
       <FooterSection />
       <script

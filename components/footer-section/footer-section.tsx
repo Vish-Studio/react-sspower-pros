@@ -1,8 +1,10 @@
+import { Facebook, Instagram, Star } from 'lucide-react';
+
 export function FooterSection() {
   const socialLinks = [
-    { label: 'Instagram', href: 'https://www.instagram.com/sspowerpros' },
-    { label: 'Facebook', href: 'https://www.facebook.com/sspowerpros' },
-    { label: 'Google Reviews', href: 'https://www.google.com/search?q=SS+Power+Pros+reviews' },
+    { label: 'Instagram', href: 'https://www.instagram.com/sspowerpros', icon: Instagram },
+    { label: 'Facebook', href: 'https://www.facebook.com/sspowerpros', icon: Facebook },
+    { label: 'Google Reviews', href: 'https://www.google.com/search?q=SS+Power+Pros+reviews', icon: Star },
   ];
 
   return (
@@ -56,11 +58,15 @@ export function FooterSection() {
           <a href="tel:+1234567890">+1 (234) 567-890</a>
           <a href="mailto:hello@sspowerpros.com">hello@sspowerpros.com</a>
           <div className="footer__socials" aria-label="Social links">
-            {socialLinks.map((item) => (
-              <a key={item.href} href={item.href} target="_blank" rel="noreferrer">
-                {item.label}
-              </a>
-            ))}
+            {socialLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a key={item.href} href={item.href} target="_blank" rel="noreferrer">
+                  <Icon size={16} aria-hidden="true" />
+                  <span>{item.label}</span>
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

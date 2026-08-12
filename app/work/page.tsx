@@ -19,9 +19,9 @@ const workItems = [
     title: 'Electrical panel cleanup',
     category: 'Electrical',
     before:
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1000&q=82',
     after:
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1000&q=82',
     result: 'Safer labeling, cleaner routing and a clearer handoff for the homeowner.',
   },
   {
@@ -37,7 +37,7 @@ const workItems = [
     title: 'AC maintenance visit',
     category: 'AC',
     before:
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=82',
     after:
       'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=82',
     result: 'Cooling equipment checked, cleaned and prepared for reliable use.',
@@ -48,7 +48,7 @@ const workItems = [
     before:
       'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=82',
     after:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=1000&q=82',
     result: 'Small repairs grouped into one practical service visit.',
   },
 ];
@@ -98,6 +98,7 @@ export default function WorkPage() {
                         src={item.before}
                         alt={`${item.title} before service`}
                         fill
+                        loading="eager"
                         sizes="(max-width: 980px) 50vw, 330px"
                       />
                       <span>Before</span>
@@ -107,6 +108,7 @@ export default function WorkPage() {
                         src={item.after}
                         alt={`${item.title} after service`}
                         fill
+                        loading="eager"
                         sizes="(max-width: 980px) 50vw, 330px"
                       />
                       <span>After</span>
