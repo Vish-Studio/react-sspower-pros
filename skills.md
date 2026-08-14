@@ -23,6 +23,13 @@ Convert local homeowners with electrical, AC, plumbing and maintenance issues in
 - CSS-token-based styling using the existing color, radius, shadow, spacing and typography variables.
 - Mobile-first conversion layouts with short copy, stable controls and clear calls to action.
 
+## Layout and CTA Consistency
+- The homepage uses the browsing-oriented `HeroSection` with service chips, rotating project imagery and its existing booking bar.
+- All non-home routes use the shared `LandingPageHero`, which stays visually aligned with the homepage through the same image stage, badge treatment and booking-bar structure.
+- Do not introduce quick-request forms, phone fields or alternate lead-capture patterns on LPs.
+- WhatsApp is the primary conversion action everywhere. Pair it with the existing secondary call CTA only when a direct-call option helps the visitor.
+- Landing-page CTAs should state the next step clearly and may use the shared three-step handoff: share the issue, confirm the visit, get it handled.
+
 ## Conversion Skills
 - Hero sections that immediately communicate who the service is for and what action to take.
 - Service-lane cards that help visitors self-identify their repair need.

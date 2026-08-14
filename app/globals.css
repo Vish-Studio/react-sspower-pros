@@ -356,7 +356,7 @@ section {
   inset: 0;
   content: "";
   background:
-    linear-gradient(180deg, rgba(34, 26, 26, 0.08) 0%, rgba(34, 26, 26, 0.72) 100%),
+    linear-gradient(180deg, rgba(34, 26, 26, 0.08) 0%, rgba(34, 26, 26, 0.78) 100%),
     linear-gradient(90deg, rgba(34, 26, 26, 0.54) 0%, transparent 42%);
 }
 
@@ -386,18 +386,27 @@ section {
   bottom: 1rem;
   left: 1rem;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
   padding: clamp(1rem, 2vw, 1.35rem);
   border: 1px solid rgba(253, 253, 253, 0.5);
   border-radius: var(--radius-small);
-  background: rgba(253, 253, 253, 0.92);
+  background: linear-gradient(90deg, rgba(253, 253, 253, 0.96), rgba(253, 253, 253, 0.86));
+  box-shadow: 0 14px 34px rgba(34, 26, 26, 0.2);
+  backdrop-filter: blur(14px);
 }
 
-.hero__booking-bar .whatsapp-cta,
-.hero__booking-bar .button {
+.hero__booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.hero__booking-actions .whatsapp-cta,
+.hero__booking-actions .button {
   flex: 0 0 auto;
 }
 
@@ -708,8 +717,26 @@ section {
   max-width: 780px;
 }
 
+.lp-hero {
+  padding-top: clamp(1rem, 3vw, 2.5rem);
+  padding-bottom: clamp(3rem, 6vw, 5.5rem);
+  background: linear-gradient(180deg, rgba(223, 232, 223, 0.5), transparent 72%);
+}
+
 .lp-hero__intro {
   min-height: clamp(360px, calc(100vh - 4.7rem - 330px), 560px);
+  padding-top: clamp(2.4rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.4rem, 5vw, 4.5rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.lp-hero .hero__intro-copy {
+  padding-left: clamp(0rem, 2vw, 1.5rem);
+  border-left: 1px solid var(--color-line);
+}
+
+.lp-hero .hero__stage {
+  aspect-ratio: 16 / 7.4;
 }
 
 .lp-hero__badge {
@@ -727,45 +754,6 @@ section {
   color: var(--color-panel);
   font-weight: 800;
   backdrop-filter: blur(12px);
-}
-
-.lp-booking-card {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 1;
-  display: grid;
-  gap: 0.85rem;
-  padding: clamp(1rem, 2vw, 1.25rem);
-  border: 1px solid rgba(253, 253, 253, 0.5);
-  border-radius: var(--radius-small);
-  background: rgba(253, 253, 253, 0.94);
-}
-
-.lp-booking-card > div > span {
-  color: var(--color-ink-soft);
-  font-size: 0.9rem;
-}
-
-.lp-booking-card h2 {
-  margin: 0.35rem 0 0;
-  font-size: clamp(1.45rem, 2.15vw, 2.1rem);
-  line-height: 1;
-}
-
-.lp-booking-card__fields {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0.65rem;
-}
-
-.lp-booking-card .button {
-  width: fit-content;
-}
-
-.lp-booking-card .whatsapp-cta {
-  width: fit-content;
 }
 
 .work-page-hero {
@@ -1151,7 +1139,11 @@ section {
 }
 
 .studio-appreciation {
-  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-paper-warm);
 }
 
 .studio-appreciation__panel {
@@ -1159,10 +1151,6 @@ section {
   grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.72fr);
   gap: clamp(1.2rem, 4vw, 3rem);
   align-items: center;
-  padding: clamp(1.1rem, 3vw, 2rem);
-  border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-medium);
-  background: var(--color-accent-soft);
 }
 
 .studio-appreciation__copy h2 {
@@ -1192,6 +1180,8 @@ section {
 .studio-appreciation__cta {
   width: fit-content;
   margin-top: 1.25rem;
+  min-height: 3.2rem;
+  padding-right: 1.2rem;
 }
 
 .studio-appreciation__offers {
@@ -1209,9 +1199,9 @@ section {
   align-items: center;
   min-height: 4rem;
   padding: 0.9rem 1rem;
-  border: 1px solid var(--color-line);
+  border: 1px solid var(--color-line-strong);
   border-radius: var(--radius-small);
-  background: rgba(253, 253, 253, 0.72);
+  background: var(--color-panel);
   color: var(--color-ink-soft);
   font-weight: 800;
 }
@@ -1514,6 +1504,10 @@ section {
   box-shadow: var(--shadow-soft);
 }
 
+.cta__panel--landing {
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.72fr);
+}
+
 .cta__panel h2 {
   margin: 0;
   font-size: clamp(2.4rem, 4.8vw, 5.2rem);
@@ -1524,6 +1518,46 @@ section {
   max-width: 620px;
   color: rgba(255, 250, 240, 0.78);
   line-height: 1.75;
+}
+
+.cta__details {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.cta__details p {
+  margin: 0;
+}
+
+.cta__details .hero__actions {
+  margin: 0;
+}
+
+.cta__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0.25rem 0 0;
+  list-style: none;
+}
+
+.cta__steps li {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(253, 253, 253, 0.28);
+  color: rgba(255, 250, 240, 0.88);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.cta__steps span {
+  color: var(--color-safety-soft);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
 }
 
 .footer {
@@ -1680,6 +1714,13 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .lp-hero .hero__intro-copy {
+    padding-left: 0;
+    border-top: 1px solid var(--color-line);
+    border-left: 0;
+    padding-top: 1.5rem;
+  }
+
   .hero__showcase {
     min-height: 620px;
   }
@@ -1759,6 +1800,11 @@ section {
     padding-bottom: 1rem;
   }
 
+  .lp-hero__intro {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
   .lp-hero .hero__title {
     font-size: clamp(2.55rem, 11vw, 3.25rem);
     line-height: 0.95;
@@ -1777,27 +1823,6 @@ section {
     left: 0.85rem;
     justify-content: center;
     text-align: center;
-  }
-
-  .lp-booking-card {
-    right: 0.85rem;
-    bottom: 0.85rem;
-    left: 0.85rem;
-    gap: 0.65rem;
-  }
-
-  .lp-booking-card__fields {
-    display: none;
-  }
-
-  .lp-booking-card h2 {
-    font-size: 1.35rem;
-  }
-
-  .lp-booking-card .button,
-  .lp-booking-card .whatsapp-cta {
-    width: 100%;
-    min-height: 2.8rem;
   }
 
   .work-page-hero {
@@ -1919,14 +1944,19 @@ section {
     line-height: 0.98;
   }
 
-  .hero__booking-bar .button {
+  .hero__booking-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__booking-actions .button,
+  .hero__booking-actions .whatsapp-cta {
     width: 100%;
     min-height: 3rem;
   }
 
-  .hero__booking-bar .whatsapp-cta {
-    width: 100%;
-    min-height: 3rem;
+  .cta__steps {
+    grid-template-columns: 1fr;
   }
 
   .hero__media,

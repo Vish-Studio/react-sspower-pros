@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Quote, Star } from 'lucide-react';
 import { CtaSection } from '@/components/cta-section/cta-section';
 import { FooterSection } from '@/components/footer-section/footer-section';
+import LandingPageHero from '@/components/landing-page-hero/landing-page-hero';
 import { Reveal } from '@/components/reveal/reveal';
 import { SectionHeading } from '@/components/section-heading/section-heading';
 import { SiteNavigation } from '@/components/site-navigation/site-navigation';
@@ -66,21 +67,15 @@ export default function ReviewsPage() {
     <>
       <SiteNavigation />
       <main>
-        <section id="home" className="reviews-page-hero">
-          <div className="container">
-            <Reveal className="reviews-page-hero__copy">
-              <div className="eyebrow">
-                <Star size={17} aria-hidden="true" />
-                Homeowner reviews
-              </div>
-              <h1 className="hero__title">Reviews from homeowners who needed the work handled.</h1>
-              <p className="hero__lead">
-                Proof from electrical, AC, plumbing and maintenance jobs where clear communication
-                mattered as much as the repair.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <LandingPageHero
+          eyebrow="Homeowner reviews"
+          title="Reviews from homeowners who needed the work handled."
+          lead="Proof from electrical, AC, plumbing and maintenance jobs where clear communication mattered as much as the repair."
+          image="https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&fit=crop&w=1600&q=84"
+          imageAlt="Plumber repairing pipes in a residential bathroom"
+          proof="Trusted across home repairs"
+          serviceOption="Service enquiry"
+        />
 
         <SocialProofStrip />
 
@@ -115,7 +110,13 @@ export default function ReviewsPage() {
           </div>
         </section>
 
-        <CtaSection />
+        <CtaSection
+          eyebrow="Book with confidence"
+          title="Ready for a clear, reliable repair visit?"
+          copy="Send the issue on WhatsApp or call us directly. We’ll confirm the right service and the next available step."
+          whatsappMessage="Hi SS Power Pros, I would like to book a service."
+          variant="landing"
+        />
       </main>
       <FooterSection />
     </>

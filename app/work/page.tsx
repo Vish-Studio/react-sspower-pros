@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Images, Sparkles } from 'lucide-react';
 import { CtaSection } from '@/components/cta-section/cta-section';
 import { FooterSection } from '@/components/footer-section/footer-section';
+import LandingPageHero from '@/components/landing-page-hero/landing-page-hero';
 import { Reveal } from '@/components/reveal/reveal';
 import { SectionHeading } from '@/components/section-heading/section-heading';
 import { SiteNavigation } from '@/components/site-navigation/site-navigation';
@@ -37,9 +38,9 @@ const workItems = [
     title: 'AC maintenance visit',
     category: 'AC',
     before:
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1694675879520-ff32d348fb7f?auto=format&fit=crop&w=1000&q=82',
     after:
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=82',
+      'https://images.unsplash.com/photo-1694675879520-ff32d348fb7f?auto=format&fit=crop&w=1000&q=88',
     result: 'Cooling equipment checked, cleaned and prepared for reliable use.',
   },
   {
@@ -58,21 +59,15 @@ export default function WorkPage() {
     <>
       <SiteNavigation />
       <main>
-        <section id="home" className="work-page-hero">
-          <div className="container">
-            <Reveal className="work-page-hero__copy">
-              <div className="eyebrow">
-                <Images size={17} aria-hidden="true" />
-                Recent work
-              </div>
-              <h1 className="hero__title">Before and after repair work from SS Power Pros.</h1>
-              <p className="hero__lead">
-                A focused gallery of electrical, plumbing, AC and maintenance work with visible
-                repair outcomes.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <LandingPageHero
+          eyebrow="Recent work"
+          title="Before and after repair work from SS Power Pros."
+          lead="A focused gallery of electrical, plumbing, AC and maintenance work with visible repair outcomes."
+          image="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=84"
+          imageAlt="Professional cleaning a window as part of home maintenance"
+          proof="Repair work, clearly shown"
+          serviceOption="Project enquiry"
+        />
 
         <SocialProofStrip />
 
@@ -140,7 +135,13 @@ export default function WorkPage() {
           </div>
         </section>
 
-        <CtaSection />
+        <CtaSection
+          eyebrow="Start a project"
+          title="Have a repair project in mind?"
+          copy="Share the work you need done. We’ll review the scope, confirm the practical next step and arrange the visit."
+          whatsappMessage="Hi SS Power Pros, I would like to discuss a repair project."
+          variant="landing"
+        />
       </main>
       <FooterSection />
     </>

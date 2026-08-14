@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'AC maintenance',
     category: 'Cooling',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=82',
+    image: 'https://images.unsplash.com/photo-1694675879520-ff32d348fb7f?auto=format&fit=crop&w=900&q=84',
   },
 ];
 

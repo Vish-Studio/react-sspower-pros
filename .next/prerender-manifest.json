@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "f08f2be5f5b08339374a7cdb282065f3",
-    "previewModeSigningKey": "57fc34b54cbcfefbbb1033f84bf0baca85e370d0aca79dac8b406a747bb92a6a",
-    "previewModeEncryptionKey": "ab504a210e30e3bd13a88556b600abdbfc2f28cc26d3176862770ce7707e0f80"
-  }
-}
+{"version":4,"routes":{"/services/electrical":{},"/services/ac":{},"/services/plumbing":{},"/services/maintenance":{}},"dynamicRoutes":{"/services/[service]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/services/[service]","routeRegex":"^\\/services\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"08c3fd2d9e32b31b5e912b14b53e6eab","previewModeSigningKey":"a1c3d366a8d0d268789085e249d93902dc5422e5df024ba5299eb350d1577174","previewModeEncryptionKey":"09cfb171a9d38ed55fbc9aa1ef87451f7b44e30feb008348dc0194ad3a0f1d50"}}

@@ -8,23 +8,25 @@ type CtaSectionProps = {
   title?: string;
   copy?: string;
   whatsappMessage?: string;
+  variant?: 'home' | 'landing';
 };
 
-export function CtaSection({
+export const CtaSection = ({
   eyebrow = 'Book on WhatsApp',
   title = 'Tell us what needs fixing.',
   copy = 'Send a WhatsApp message or call directly. We’ll confirm the service, timing and next step.',
   whatsappMessage,
-}: CtaSectionProps) {
+  variant = 'home',
+}: CtaSectionProps) => {
   return (
     <section id="contact" className="cta">
       <div className="container">
-        <Reveal className="cta__panel">
-          <div>
+        <Reveal className={`cta__panel cta__panel--${variant}`}>
+          <div className="cta__content">
             <div className="eyebrow">{eyebrow}</div>
             <h2>{title}</h2>
           </div>
-          <div>
+          <div className="cta__details">
             <p>{copy}</p>
             <div className="hero__actions">
               <WhatsappCta message={whatsappMessage} />
@@ -32,9 +34,25 @@ export function CtaSection({
                 Call now
               </CustomButton>
             </div>
+            {variant === 'landing' ? (
+              <ol className="cta__steps" aria-label="What happens next">
+                <li>
+                  <span>01</span>
+                  Share the issue
+                </li>
+                <li>
+                  <span>02</span>
+                  Confirm the visit
+                </li>
+                <li>
+                  <span>03</span>
+                  Get it handled
+                </li>
+              </ol>
+            ) : null}
           </div>
         </Reveal>
       </div>
     </section>
   );
-}
+};

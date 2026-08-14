@@ -1,24 +1,19 @@
-import Image from 'next/image';
 import {
   CalendarCheck,
   CheckCircle2,
   Clock3,
   ClipboardCheck,
   LucideIcon,
-  PhoneCall,
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
-import { CustomButton } from '@/components/custom-button/custom-button';
-import { CustomInput } from '@/components/custom-input/custom-input';
-import { CustomSelect } from '@/components/custom-select/custom-select';
 import { CtaSection } from '@/components/cta-section/cta-section';
 import { FooterSection } from '@/components/footer-section/footer-section';
+import LandingPageHero from '@/components/landing-page-hero/landing-page-hero';
 import { Reveal } from '@/components/reveal/reveal';
 import { SectionHeading } from '@/components/section-heading/section-heading';
 import { SiteNavigation } from '@/components/site-navigation/site-navigation';
 import { SocialProofStrip } from '@/components/social-proof-strip/social-proof-strip';
-import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 export type ServiceLandingPageData = {
   slug: string;
@@ -50,7 +45,7 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Electrical service',
     serviceOption: 'Electrical repair',
     image:
-      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=84',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=84',
     imageAlt: 'Electrician working on residential electrical equipment',
     proof: 'Repair intake before dispatch',
     overviewTitle: 'Safer electrical work, without vague handoffs.',
@@ -84,8 +79,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'AC service',
     serviceOption: 'AC service',
     image:
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Technician preparing equipment for residential AC service',
+      'https://images.unsplash.com/photo-1694675879520-ff32d348fb7f?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Air conditioning units installed on a building exterior',
     proof: 'Cooling issue triage',
     overviewTitle: 'Cooling requests routed with the right details.',
     overviewCopy:
@@ -118,8 +113,8 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Plumbing service',
     serviceOption: 'Plumbing repair',
     image:
-      'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=84',
-    imageAlt: 'Clean residential plumbing fixtures after repair work',
+      'https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&fit=crop&w=1600&q=84',
+    imageAlt: 'Plumber repairing pipes in a residential bathroom',
     proof: 'Leak and fixture triage',
     overviewTitle: 'Plumbing problems need quick clarity.',
     overviewCopy:
@@ -152,7 +147,7 @@ export const serviceLandingPages: Record<string, ServiceLandingPageData> = {
     eyebrow: 'Home maintenance',
     serviceOption: 'Home maintenance',
     image:
-      'https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=1600&q=84',
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=84',
     imageAlt: 'Contractor tools ready for home maintenance work',
     proof: 'Punch-list intake',
     overviewTitle: 'A cleaner path for everyday home repairs.',
@@ -199,55 +194,15 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
     <>
       <SiteNavigation />
       <main>
-        <section id="home" className="hero hero--editorial lp-hero">
-          <div className="container hero__shell">
-            <Reveal className="hero__intro lp-hero__intro">
-              <div>
-                <div className="eyebrow">
-                  <ShieldCheck size={17} aria-hidden="true" />
-                  {service.eyebrow}
-                </div>
-                <h1 className="hero__title">{service.title}</h1>
-              </div>
-              <div className="hero__intro-copy">
-                <p className="hero__lead">{service.lead}</p>
-                <div className="hero__actions">
-                  <WhatsappCta message={`Hi SS Power Pros, I would like to book ${service.serviceOption}.`} />
-                  <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
-                    Call now
-                  </CustomButton>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal className="hero__stage lp-hero__stage" delay={0.08}>
-              <Image
-                src={service.image}
-                alt={service.imageAlt}
-                fill
-                priority
-                sizes="(max-width: 980px) 100vw, 48vw"
-              />
-              <div className="lp-hero__badge">
-                <Clock3 size={18} aria-hidden="true" />
-                <span>{service.proof}</span>
-              </div>
-              <form className="lp-booking-card" action="mailto:hello@sspowerpros.com">
-                <div>
-                  <span>Quick request</span>
-                  <h2>Tell us what needs attention.</h2>
-                </div>
-                <div className="lp-booking-card__fields">
-                  <CustomSelect name="service" aria-label="Service type" defaultValue={service.serviceOption}>
-                    <option value={service.serviceOption}>{service.serviceOption}</option>
-                  </CustomSelect>
-                  <CustomInput name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" />
-                </div>
-                <WhatsappCta message={`Hi SS Power Pros, I would like to book ${service.serviceOption}.`} />
-              </form>
-            </Reveal>
-          </div>
-        </section>
+        <LandingPageHero
+          eyebrow={service.eyebrow}
+          title={service.title}
+          lead={service.lead}
+          image={service.image}
+          imageAlt={service.imageAlt}
+          proof={service.proof}
+          serviceOption={service.serviceOption}
+        />
 
         <SocialProofStrip />
 
@@ -325,6 +280,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
           title="Ready to talk through the repair?"
           copy="Send the repair details on WhatsApp or call directly so the right service path can be confirmed."
           whatsappMessage={`Hi SS Power Pros, I would like to book ${service.serviceOption}.`}
+          variant="landing"
         />
       </main>
       <FooterSection />

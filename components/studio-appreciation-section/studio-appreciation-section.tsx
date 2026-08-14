@@ -21,19 +21,19 @@ type StudioAppreciationSectionProps = {
   note?: string;
 };
 
-export function StudioAppreciationSection({ note }: StudioAppreciationSectionProps) {
+export const StudioAppreciationSection = ({ note }: StudioAppreciationSectionProps) => {
   return (
     <section className="studio-appreciation" aria-label="Website design credit">
       <div className="container studio-appreciation__panel">
         <Reveal className="studio-appreciation__copy" direction="left">
           <div className="eyebrow">
             <Sparkles size={17} aria-hidden="true" />
-            Appreciation post
+            Digital partner
           </div>
-          <h2>Built by VISH studio.</h2>
+          <h2>Built with care by VISH Studio.</h2>
           <p>
-            A focused build partner for service brands that need polished pages,
-            clear customer journeys and production-ready websites that feel easy to use.
+            VISH Studio helps service businesses turn their expertise into clear, conversion-ready
+            digital experiences.
           </p>
           <CustomButton
             href="https://www.vish.studio"
@@ -41,7 +41,7 @@ export function StudioAppreciationSection({ note }: StudioAppreciationSectionPro
             icon={ArrowUpRight}
             className="studio-appreciation__cta"
           >
-            Visit VISH studio
+            Explore VISH Studio
           </CustomButton>
           {note ? <span className="studio-appreciation__note">{note}</span> : null}
         </Reveal>
@@ -63,4 +63,4 @@ export function StudioAppreciationSection({ note }: StudioAppreciationSectionPro
       </div>
     </section>
   );
-}
+};

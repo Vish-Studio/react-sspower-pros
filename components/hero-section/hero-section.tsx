@@ -11,24 +11,34 @@ const serviceChips = ['Electrical', 'AC', 'Plumbing', 'Maintenance'];
 
 const heroSlides = [
   {
-    src: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=82',
-    alt: 'Residential electrical technician inspecting a circuit breaker panel',
+    src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=84',
+    alt: 'Bright, well-maintained living room in a family home',
+    label: 'Home',
+    position: 'center 52%',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=84',
+    alt: 'Electrician working on residential electrical equipment',
     label: 'Electrical',
+    position: 'center 48%',
   },
   {
-    src: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1800&q=82',
-    alt: 'Plumbing and pipe repair work inside a home',
+    src: 'https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&fit=crop&w=1800&q=84',
+    alt: 'Plumber repairing pipes in a residential bathroom',
     label: 'Plumbing',
+    position: 'center 48%',
   },
   {
-    src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=82',
-    alt: 'Technician servicing home cooling and mechanical equipment',
+    src: 'https://images.unsplash.com/photo-1694675879520-ff32d348fb7f?auto=format&fit=crop&w=1800&q=84',
+    alt: 'Air conditioning units installed on a building exterior',
     label: 'Cooling',
+    position: 'center 50%',
   },
   {
-    src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82',
-    alt: 'Home maintenance professional working inside a residential property',
+    src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=84',
+    alt: 'Professional cleaning a window as part of home maintenance',
     label: 'Maintenance',
+    position: 'center 50%',
   },
 ];
 
@@ -94,6 +104,7 @@ export function HeroSection() {
                 fill
                 priority={activeSlide === 0}
                 sizes="(max-width: 980px) 100vw, 1320px"
+                style={{ objectPosition: heroSlides[activeSlide].position }}
               />
             </motion.div>
           </AnimatePresence>
@@ -121,10 +132,12 @@ export function HeroSection() {
               <span>Same-day call-backs for urgent issues</span>
               <h2>Tell us what needs fixing.</h2>
             </div>
-            <WhatsappCta message="Hi SS Power Pros, I would like to start a booking." />
-            <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
-              Call now
-            </CustomButton>
+            <div className="hero__booking-actions">
+              <WhatsappCta message="Hi SS Power Pros, I would like to start a booking." />
+              <CustomButton href="tel:+1234567890" variant="secondary" icon={PhoneCall}>
+                Call now
+              </CustomButton>
+            </div>
           </div>
         </motion.div>
       </div>

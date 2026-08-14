@@ -10,6 +10,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vish-studio.github.io/nxt-sspower-pros'),
   title: 'SS Power Pros | Electrical, AC, Plumbing & Home Maintenance Contractor',
   description:
     'Book SS Power Pros for electrical repairs, AC service, plumbing repairs and home maintenance from one dependable local contractor.',

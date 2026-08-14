@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from 'react';
 import { WhatsappCta } from '@/components/whatsapp-cta/whatsapp-cta';
 
 const navItems = [
-  { label: 'Work', href: '/work' },
+  { label: 'Home', href: '/' },
+  { label: 'Works', href: '/work' },
+  { label: 'Services', href: '/services' },
   { label: 'Reviews', href: '/reviews' },
-  { label: 'Book', href: '/#contact' },
 ];
 
 const serviceItems = [
@@ -40,33 +41,36 @@ export function SiteNavigation() {
           <span>SS Power Pros</span>
         </Link>
         <nav className="site-nav__links" aria-label="Primary navigation">
-          <div className="site-nav__menu" ref={menuRef}>
-            <button
-              type="button"
-              className="site-nav__menu-trigger"
-              aria-expanded={isServicesOpen}
-              aria-controls="services-submenu"
-              onClick={() => setIsServicesOpen((current) => !current)}
-            >
-              <span>Services</span>
-              <ChevronDown size={15} aria-hidden="true" />
-            </button>
-            <div
-              id="services-submenu"
-              className={`site-nav__submenu${isServicesOpen ? ' site-nav__submenu--open' : ''}`}
-              aria-label="Service pages"
-            >
-              {serviceItems.map((item) => (
-                <Link key={item.href} href={item.href} onClick={() => setIsServicesOpen(false)}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
+            item.label === 'Services' ? (
+              <div key={item.href} className="site-nav__menu" ref={menuRef}>
+                <button
+                  type="button"
+                  className="site-nav__menu-trigger"
+                  aria-expanded={isServicesOpen}
+                  aria-controls="services-submenu"
+                  onClick={() => setIsServicesOpen((current) => !current)}
+                >
+                  <span>{item.label}</span>
+                  <ChevronDown size={15} aria-hidden="true" />
+                </button>
+                <div
+                  id="services-submenu"
+                  className={`site-nav__submenu${isServicesOpen ? ' site-nav__submenu--open' : ''}`}
+                  aria-label="Service pages"
+                >
+                  {serviceItems.map((service) => (
+                    <Link key={service.href} href={service.href} onClick={() => setIsServicesOpen(false)}>
+                      {service.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
         <div className="site-nav__actions">
